@@ -1,15 +1,14 @@
 
 class Rocket {
-
+  
   constructor(position) {
     this.acceleration = createVector(0,0,0);
     this.velocity = createVector(0,0,0);
     this.position = position.copy();
-    this.r = 4;
+    this.r = 8;
     this.target;
-    this.maxSpeed = 6.0;
-    this.maxForce = 1.0;
-    this.size = 2.0;
+    this.maxSpeed = 10;
+    this.maxForce = 0.5;
   }
 
   run() {
@@ -31,6 +30,23 @@ class Rocket {
     this.velocity.limit(this.maxSpeed);
     this.position.add(this.velocity);
     this.acceleration.mult(0); // take acc back down to zero
+
+    console.log(this.velocity);
+  }
+
+  display() {
+    var theta = this.velocity.heading() + PI/2;
+    fill(255);
+    stroke(0);
+    push();
+    translate(this.position.x, this.position.y);
+    rotate(theta);
+    beginShape();
+    vertex(0, -this.r*2);
+    vertex(-this.r, this.r*2);
+    vertex(this.r, this.r*2);
+    endShape(CLOSE);
+    pop();
   }
 
   seek() {
@@ -45,18 +61,17 @@ class Rocket {
     this.acceleration.add(steer);
   }
 
-  display() {
-    var theta = this.velocity.heading() + PI/2;
-    fill(255);
-    stroke(0);
-    push();
-    translate(this.position.x,this.position.y);
-    rotate(theta);
-    beginShape();
-    vertex(0, -this.r*2);
-    vertex(-this.r, this.r*2);
-    vertex(this.r, this.r*2);
-    endShape(CLOSE);
-    pop();
+  checkEdges() {
+    if (this.position > width) {
+      this.destroy()
+    } else if (this.position > height) {
+      this.destroy();
+    }
   }
+
+  destroy() {
+    
+  }
+
+  
 }

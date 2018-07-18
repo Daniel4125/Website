@@ -5,7 +5,6 @@
 
 class Population {
     constructor(p, m, num) {
-  
       this.population; // Array to hold the current population
       this.matingPool; // ArrayList which we will use for our "mating pool"
       this.generations = 0; // Number of generations
@@ -29,6 +28,7 @@ class Population {
       for (let i = 0; i < this.population.length; i++) {
         this.population[i].calcFitness(target);
       }
+    }
   
     // Generate a mating pool
     naturalSelection() {

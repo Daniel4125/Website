@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <meta charset="utf-8">
+    <title>Evolutionary Algorithms</title>
+    <script language="javascript" src="lib/p5.js"></script>
+    <script language="javascript" src="lib/p5.dom.js"></script>
+    <link rel="stylesheet" href="css/evolve-shakespear/style.css">
+
+    <style type = "test/css" media = "all">
+      sketch {
+        background-color: black;
+      }
+      h1 {
+        color: maroon;
+        margin-left: 40px;
+      }
+    </style>
+{% endblock %}
+
+{% block body %}
+  <div id="sketch">
+    <script language="javascript" type="text/javascript" src="javascript/evolve-shakespear/sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="javascript/evolve-shakespear/DNA.js"></script>
+    <script language="javascript" type="text/javascript" src="javascript/evolve-shakespear/Population.js"></script>
+  </div>
+{% endblock %}
+
+

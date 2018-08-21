@@ -1,0 +1,21 @@
+<!--There are two kinds of delimiters. {% ... %} and {{ ... }}.
+    The first one is used to execute statements such as
+    for-loops or assign values, the latter prints the result of
+    the expression to the template.-->
+
+
+<!doctype html>
+<html>
+    <head>
+        <title>{{ the_title }}</title>
+        <link rel="stylesheet" href="static/css/hf.css" />
+        {% block head %}
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+</html>
